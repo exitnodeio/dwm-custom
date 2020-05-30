@@ -35,11 +35,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "firefox",  NULL,       NULL,       0,            0,            2 },
-	{ "Slack",    NULL,       NULL,       0,            0,            0 },
-	{ "kitty",    NULL,       NULL,       0,            0,            1 },
+	/* class            instance    title       tags mask     isfloating   monitor */
+	{ "Gimp",           NULL,       NULL,       0,            1,           -1 },
+	{ "firefox",        NULL,       NULL,       1 << 3,       0,            2 },
+	{ "Slack",          NULL,       NULL,       0,            0,            0 },
+	{ "kitty",          NULL,       NULL,       1 << 1,       0,            1 },
+	{ "YTMusicSurf",    NULL,       NULL,       1 << 4,       0,            2 },
 };
 
 /* layout(s) */
@@ -72,7 +73,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "j4-dmenu-desktop" };/*, "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };*/
 static const char *termcmd[]  = { "kitty", NULL };
 
 static Key keys[] = {
